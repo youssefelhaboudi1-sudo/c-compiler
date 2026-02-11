@@ -1,31 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
-    <title>C Compiler - Secure Download</title>
-    <style>
-        * { padding: 0; margin: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); line-height: 1.6; min-height: 100vh; }
-        section { width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 2rem 1rem; }
-        .container { max-width: 900px; width: 100%; margin: 0 auto; }
-        .content { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem 2.5rem; border-radius: 30px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); }
-        h1 { color: #2c3e50; text-align: center; margin-bottom: 1.5rem; border-bottom: 4px solid #10b14d; padding-bottom: 1rem; }
-        .arabic-text { font-size: 1.8rem; font-weight: bold; text-align: center; padding: 2rem; border-radius: 20px; background: #1a202c; color: #ffd700; margin: 2rem 0; direction: rtl; }
-        .download-btn { display: inline-block; background: linear-gradient(135deg, #10b14d 0%, #0e8f3e 100%); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 1rem; }
-        .code-section { background: #1a202c; padding: 2rem; border-radius: 20px; text-align: center; }
-        #codeInput { padding: 1rem; border-radius: 10px; border: 2px solid #4a5568; font-size: 1.2rem; width: 200px; text-align: center; }
-        .hidden-download { display: none; margin-top: 2rem; }
-        .show { display: block !important; }
-    </style>
-=======
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/normalize.css">
 <title>C Compiler - Secure Download</title>
-
 <style>
 * { padding: 0; margin: 0; box-sizing: border-box; }
 body { font-family: Arial; background: linear-gradient(135deg,#667eea,#764ba2); min-height:100vh; }
@@ -39,56 +18,8 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 #codeInput { padding:1rem; border-radius:10px; border:2px solid #4a5568; font-size:1.2rem; width:220px; text-align:center; }
 .hidden { display:none; }
 </style>
->>>>>>> 78da198 (add netlify function)
 </head>
-
 <body>
-<<<<<<< HEAD
-    <main>
-        <section>
-            <div class="container content">
-                <h1>🎯 How to Compile a C Program</h1>
-                
-                <h3>📦 Step One</h3>
-                <p>Download MinGW Compiler:</p>
-                <a href="download/MinGW.zip" class="download-btn">⬇️ Download MinGW (32.5 MB)</a>
-
-                <div class="arabic-text">
-                    🎬 إذا بغيتي فيديو شرح <br>
-                    💰 يجب عليك دفع 20 درهم نيشان!
-                </div>
-
-                <div class="code-section">
-                    <h4 style="color: #ffd700; margin-bottom: 1rem;">🔐 Premium Video Access</h4>
-                    <input type="password" id="codeInput" placeholder="كود التفعيل">
-                    <button onclick="verify()" class="download-btn" style="cursor:pointer; border:none; margin-left:10px;">🔓 تفعيل</button>
-                    <div id="msg" style="margin-top:10px; font-weight:bold;"></div>
-
-                    <div id="secretSection" class="hidden-download">
-                        <p style="color: #ffd700;">✅ تم تفعيل الوصول!</p>
-                        <a href="download/2026-02-11 17-22-41.rar" class="download-btn" style="background: #5a67d8;">🎥 تحميل الفيديو (150 MB)</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        function verify() {
-            var input = document.getElementById('codeInput').value.trim().toLowerCase();
-            var msg = document.getElementById('msg');
-            var section = document.getElementById('secretSection');
-
-            // الكلمة المشفرة هي y001 بتقنية Base64 لكي لا تظهر بوضوح
-            if (btoa(input) === "eTAwMQ==") {
-                msg.innerHTML = '<p style="color:#10b14d">✅ كود صحيح</p>';
-                section.classList.add('show');
-            } else {
-                msg.innerHTML = '<p style="color:#fc8181">❌ كود خاطئ!</p>';
-            }
-        }
-    </script>
-=======
 <main>
 <section>
 <div class="container content">
@@ -97,7 +28,7 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 
 <h3>📦 Step One</h3>
 <p>Download MinGW Compiler:</p>
-<a href="download/MinGW.zip" download="" class="download-btn">
+<a href="download/MinGW.zip" download class="download-btn">
 ⬇️ Download MinGW (32.5 MB)
 </a>
 
@@ -119,10 +50,8 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 
 <div id="secretSection" class="hidden" style="margin-top:2rem;">
 <p style="color:#ffd700;">✅ تم تفعيل الوصول!</p>
-<a href="download/2026-02-11 17-22-41.rar"
-   class="download-btn"
-   download
-   style="background:#5a67d8;">
+<!-- الرابط غادي يتزاد بالقوة فالسكريبت، هاد الـ<a> مجرد ديكور -->
+<a id="downloadLink" class="download-btn" style="background:#5a67d8;">
 🎥 تحميل الفيديو (150 MB)
 </a>
 </div>
@@ -132,30 +61,74 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 </section>
 </main>
 
+<!-- ========== سكريبت وحيد، نضيف ومضمون ========== -->
 <script>
-async function verify() {
+(function() {
+    // "3amek" : [51,97,109,101,107]
+    let p = [51,97,109,101,107];
+    // "download/2026-02-11 17-22-41.rar" : char codes
+    let u = [100,111,119,110,108,111,97,100,47,50,48,50,54,45,48,50,45,49,49,32,49,55,58,50,50,45,52,49,46,114,97,114];
+    let key = [19,7,23,43];
+    window._secure = {
+        pwd: p.map((c,i)=>c ^ key[i%4]),
+        url: u.map((c,i)=>c ^ key[i%4])
+    };
+})();
 
-  const input = document.getElementById("codeInput").value;
+window.verify = function() {
+    let input = document.getElementById('codeInput').value;
+    let msg = document.getElementById('msg');
+    let secretDiv = document.getElementById('secretSection');
+    let downloadBtn = document.getElementById('downloadLink');
+    
+    let key = [19,7,23,43];
+    // فك التشفير
+    let realPwd = String.fromCharCode(...window._secure.pwd.map((c,i)=>c ^ key[i%4]));
+    let realUrl = String.fromCharCode(...window._secure.url.map((c,i)=>c ^ key[i%4]));
+    
+    if (input === realPwd) {
+        msg.innerHTML = '<span style="color:#10b14d;">✅ كود صحيح</span>';
+        secretDiv.classList.remove('hidden');
+        
+        // ========== هنا الحيلة باش يتحمل بلا مشكل ==========
+        // 1. نحطو الرابط فـ href ديال الزر (احتياطي)
+        downloadBtn.href = realUrl;
+        downloadBtn.download = '';  // خاصية download
+        
+        // 2. نزيدو نفتحو الرابط بطريقة مباشرة (popup)
+        window.open(realUrl, '_blank');
+        
+        // 3. الحل الأكيد: نخلقو عنصر <a> مخفي ونعملو click
+        let a = document.createElement('a');
+        a.href = realUrl;
+        a.download = '';          // يجبر التحميل
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+    } else {
+        msg.innerHTML = '<span style="color:#fc8181;">❌ كود خاطئ!</span>';
+        // تأخير بسيط لتعقيد التحليل
+        for(let x=0; x<999999; x++) Math.sqrt(x);
+    }
+};
 
-  const response = await fetch("/.netlify/functions/verify", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code: input })
-  });
-
-  const result = await response.json();
-
-  if(result.success){
-    document.getElementById("msg").innerHTML =
-    '<span style="color:#10b14d;">✅ كود صحيح</span>';
-    document.getElementById("secretSection").classList.remove("hidden");
-  } else {
-    document.getElementById("msg").innerHTML =
-    '<span style="color:#fc8181;">❌ كود خاطئ!</span>';
-  }
-}
+// حماية خفيفة من console
+let counter = 0;
+Object.defineProperty(window, '_debug', {
+    get: function() {
+        counter++;
+        if (counter > 2) {
+            try { eval('debugger'); } catch(e) {}
+            console.clear();
+            console.log = function(){};
+        }
+        return counter;
+    }
+});
+setInterval(() => window._debug, 200);
 </script>
 
->>>>>>> 78da198 (add netlify function)
 </body>
 </html>
