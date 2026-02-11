@@ -10,13 +10,11 @@
         body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); line-height: 1.6; min-height: 100vh; }
         section { width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 2rem 1rem; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
-        .content { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem 2.5rem; border-radius: 30px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); }
-        h1 { color: #2c3e50; font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; border-bottom: 4px solid #10b14d; padding-bottom: 1rem; }
-        h3 { color: #2c3e50; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-left: 15px; border-left: 6px solid #667eea; }
-        .arabic-text { font-size: 1.8rem; font-weight: bold; text-align: center; padding: 2rem; border-radius: 20px; background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); color: #ffd700; margin: 2rem 0; border: 2px solid #ffd700; direction: rtl; }
-        .download-btn { display: inline-block; background: linear-gradient(135deg, #10b14d 0%, #0e8f3e 100%); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 1rem; transition: all 0.4s; }
-        .download-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 177, 77, 0.35); }
-        .code-section { background: #1a202c; padding: 2rem; border-radius: 20px; margin: 2rem 0; text-align: center; }
+        .content { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem 2.5rem; border-radius: 30px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 1.5rem; border-bottom: 4px solid #10b14d; padding-bottom: 1rem; }
+        .arabic-text { font-size: 1.8rem; font-weight: bold; text-align: center; padding: 2rem; border-radius: 20px; background: #1a202c; color: #ffd700; margin: 2rem 0; direction: rtl; }
+        .download-btn { display: inline-block; background: linear-gradient(135deg, #10b14d 0%, #0e8f3e 100%); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 1rem; }
+        .code-section { background: #1a202c; padding: 2rem; border-radius: 20px; text-align: center; }
         #codeInput { padding: 1rem; border-radius: 10px; border: 2px solid #4a5568; font-size: 1.2rem; width: 200px; text-align: center; }
         .hidden-download { display: none; margin-top: 2rem; }
         .show { display: block !important; }
@@ -27,27 +25,25 @@
         <section>
             <div class="container content">
                 <h1>🎯 How to Compile a C Program</h1>
-                <p>To compile a C program, you can use the following steps:</p>
                 
                 <h3>📦 Step One</h3>
                 <p>Download MinGW Compiler:</p>
-                <a href="download/MinGW.zip" download="" class="download-btn">⬇️ Download MinGW (32.5 MB)</a>
+                <a href="download/MinGW.zip" class="download-btn">⬇️ Download MinGW (32.5 MB)</a>
 
                 <div class="arabic-text">
                     🎬 إذا بغيتي فيديو شرح <br>
-                    💰 يجب عليك دفع 19.99 درهم<br>
-                    <span style="color: #fff; font-size: 1.2rem;">(ماعنديش الصرف، خلص 20 درهم نيشان! )</span>
+                    💰 يجب عليك دفع 20 درهم نيشان!
                 </div>
 
                 <div class="code-section">
                     <h4 style="color: #ffd700; margin-bottom: 1rem;">🔐 Premium Video Access</h4>
                     <input type="password" id="codeInput" placeholder="كود التفعيل">
-                    <button onclick="verify()" class="download-btn" style="cursor:pointer; border:none; margin-left:10px;">🔓 تفعيل التحميل</button>
+                    <button onclick="verify()" class="download-btn" style="cursor:pointer; border:none; margin-left:10px;">🔓 تفعيل</button>
                     <div id="msg" style="margin-top:10px; font-weight:bold;"></div>
 
                     <div id="secretSection" class="hidden-download">
-                        <p style="color: #ffd700;">✅ تم تفعيل الوصول! شكراً على الـ 20 درهم!</p>
-                        <a href="download/2026-02-11 17-22-41.rar" download class="download-btn" style="background: #5a67d8;">🎥 تحميل الفيديو (150 MB)</a>
+                        <p style="color: #ffd700;">✅ تم تفعيل الوصول!</p>
+                        <a href="download/2026-02-11 17-22-41.rar" class="download-btn" style="background: #5a67d8;">🎥 تحميل الفيديو (150 MB)</a>
                     </div>
                 </div>
             </div>
@@ -55,22 +51,17 @@
     </main>
 
     <script>
-        async function verify() {
-            const input = document.getElementById('codeInput').value.trim().toLowerCase();
-            const msg = document.getElementById('msg');
-            const section = document.getElementById('secretSection');
+        function verify() {
+            var input = document.getElementById('codeInput').value.trim().toLowerCase();
+            var msg = document.getElementById('msg');
+            var section = document.getElementById('secretSection');
 
-            const enc = new TextEncoder();
-            const data = enc.encode(input);
-            const buf = await crypto.subtle.digest('SHA-256', data);
-            const arr = Array.from(new Uint8Array(buf));
-            const hash = arr.map(b => b.toString(16).padStart(2, '0')).join('');
-
-            if (hash === "59385675e2f79048a1768a1f814986427670977826359e93132715003f9a7444") {
+            // الكلمة المشفرة هي y001 بتقنية Base64 لكي لا تظهر بوضوح
+            if (btoa(input) === "eTAwMQ==") {
                 msg.innerHTML = '<p style="color:#10b14d">✅ كود صحيح</p>';
                 section.classList.add('show');
             } else {
-                msg.innerHTML = '<p style="color:#fc8181">❌ كود خاطئ! فين 20 درهم؟</p>';
+                msg.innerHTML = '<p style="color:#fc8181">❌ كود خاطئ!</p>';
             }
         }
     </script>
