@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
@@ -19,8 +20,30 @@
         .hidden-download { display: none; margin-top: 2rem; }
         .show { display: block !important; }
     </style>
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/normalize.css">
+<title>C Compiler - Secure Download</title>
+
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { font-family: Arial; background: linear-gradient(135deg,#667eea,#764ba2); min-height:100vh; }
+section { width:100%; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:2rem; }
+.container { max-width:900px; width:100%; }
+.content { background:rgba(255,255,255,0.95); padding:3rem; border-radius:30px; }
+h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; padding-bottom:1rem; }
+.arabic-text { font-size:1.8rem; font-weight:bold; text-align:center; padding:2rem; border-radius:20px; background:#1a202c; color:#ffd700; margin:2rem 0; direction:rtl; }
+.download-btn { display:inline-block; background:#10b14d; color:white; padding:1rem 2rem; text-decoration:none; border-radius:50px; font-weight:bold; margin-top:1rem; border:none; cursor:pointer; }
+.code-section { background:#1a202c; padding:2rem; border-radius:20px; text-align:center; }
+#codeInput { padding:1rem; border-radius:10px; border:2px solid #4a5568; font-size:1.2rem; width:220px; text-align:center; }
+.hidden { display:none; }
+</style>
+>>>>>>> 78da198 (add netlify function)
 </head>
+
 <body>
+<<<<<<< HEAD
     <main>
         <section>
             <div class="container content">
@@ -65,5 +88,74 @@
             }
         }
     </script>
+=======
+<main>
+<section>
+<div class="container content">
+
+<h1>🎯 How to Compile a C Program</h1>
+
+<h3>📦 Step One</h3>
+<p>Download MinGW Compiler:</p>
+<a href="download/MinGW.zip" download="" class="download-btn">
+⬇️ Download MinGW (32.5 MB)
+</a>
+
+<div class="arabic-text">
+🎬 إذا بغيتي فيديو شرح <br>
+💰 يجب عليك دفع 20 درهم نيشان!
+</div>
+
+<div class="code-section">
+<h4 style="color:#ffd700;margin-bottom:1rem;">
+🔐 Premium Video Access
+</h4>
+
+<input type="password" id="codeInput" placeholder="كود التفعيل">
+<br><br>
+<button onclick="verify()" class="download-btn">🔓 تفعيل</button>
+
+<div id="msg" style="margin-top:10px;font-weight:bold;"></div>
+
+<div id="secretSection" class="hidden" style="margin-top:2rem;">
+<p style="color:#ffd700;">✅ تم تفعيل الوصول!</p>
+<a href="download/2026-02-11 17-22-41.rar"
+   class="download-btn"
+   download
+   style="background:#5a67d8;">
+🎥 تحميل الفيديو (150 MB)
+</a>
+</div>
+
+</div>
+</div>
+</section>
+</main>
+
+<script>
+async function verify() {
+
+  const input = document.getElementById("codeInput").value;
+
+  const response = await fetch("/.netlify/functions/verify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code: input })
+  });
+
+  const result = await response.json();
+
+  if(result.success){
+    document.getElementById("msg").innerHTML =
+    '<span style="color:#10b14d;">✅ كود صحيح</span>';
+    document.getElementById("secretSection").classList.remove("hidden");
+  } else {
+    document.getElementById("msg").innerHTML =
+    '<span style="color:#fc8181;">❌ كود خاطئ!</span>';
+  }
+}
+</script>
+
+>>>>>>> 78da198 (add netlify function)
 </body>
 </html>
