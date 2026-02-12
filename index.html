@@ -50,7 +50,6 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 
 <div id="secretSection" class="hidden" style="margin-top:2rem;">
 <p style="color:#ffd700;">✅ تم تفعيل الوصول!</p>
-<!-- الرابط غادي يتزاد بالقوة فالسكريبت، هاد الـ<a> مجرد ديكور -->
 <a id="downloadLink" class="download-btn" style="background:#5a67d8;">
 🎥 تحميل الفيديو (150 MB)
 </a>
@@ -61,12 +60,9 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 </section>
 </main>
 
-<!-- ========== سكريبت وحيد، نضيف ومضمون ========== -->
 <script>
 (function() {
-    // "3amek" : [51,97,109,101,107]
-    let p = [51,97,109,101,107];
-    // "download/2026-02-11 17-22-41.rar" : char codes
+    let p = [121,49,50,51]; 
     let u = [100,111,119,110,108,111,97,100,47,50,48,50,54,45,48,50,45,49,49,32,49,55,58,50,50,45,52,49,46,114,97,114];
     let key = [19,7,23,43];
     window._secure = {
@@ -82,7 +78,6 @@ window.verify = function() {
     let downloadBtn = document.getElementById('downloadLink');
     
     let key = [19,7,23,43];
-    // فك التشفير
     let realPwd = String.fromCharCode(...window._secure.pwd.map((c,i)=>c ^ key[i%4]));
     let realUrl = String.fromCharCode(...window._secure.url.map((c,i)=>c ^ key[i%4]));
     
@@ -90,18 +85,12 @@ window.verify = function() {
         msg.innerHTML = '<span style="color:#10b14d;">✅ كود صحيح</span>';
         secretDiv.classList.remove('hidden');
         
-        // ========== هنا الحيلة باش يتحمل بلا مشكل ==========
-        // 1. نحطو الرابط فـ href ديال الزر (احتياطي)
         downloadBtn.href = realUrl;
-        downloadBtn.download = '';  // خاصية download
+        downloadBtn.download = '';
         
-        // 2. نزيدو نفتحو الرابط بطريقة مباشرة (popup)
-        window.open(realUrl, '_blank');
-        
-        // 3. الحل الأكيد: نخلقو عنصر <a> مخفي ونعملو click
         let a = document.createElement('a');
         a.href = realUrl;
-        a.download = '';          // يجبر التحميل
+        a.download = '';
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
@@ -109,12 +98,10 @@ window.verify = function() {
         
     } else {
         msg.innerHTML = '<span style="color:#fc8181;">❌ كود خاطئ!</span>';
-        // تأخير بسيط لتعقيد التحليل
         for(let x=0; x<999999; x++) Math.sqrt(x);
     }
 };
 
-// حماية خفيفة من console
 let counter = 0;
 Object.defineProperty(window, '_debug', {
     get: function() {
