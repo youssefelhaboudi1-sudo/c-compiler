@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,20 +6,21 @@
 <link rel="stylesheet" href="css/normalize.css">
 <title>C Compiler - Secure Download</title>
 <style>
-* { padding: 0; margin: 0; box-sizing: border-box; }
-body { font-family: Arial; background: linear-gradient(135deg,#667eea,#764ba2); min-height:100vh; }
-section { width:100%; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:2rem; }
-.container { max-width:900px; width:100%; }
-.content { background:rgba(255,255,255,0.95); padding:3rem; border-radius:30px; }
-h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; padding-bottom:1rem; }
-.arabic-text { font-size:1.8rem; font-weight:bold; text-align:center; padding:2rem; border-radius:20px; background:#1a202c; color:#ffd700; margin:2rem 0; direction:rtl; }
-.download-btn { display:inline-block; background:#10b14d; color:white; padding:1rem 2rem; text-decoration:none; border-radius:50px; font-weight:bold; margin-top:1rem; border:none; cursor:pointer; }
-.code-section { background:#1a202c; padding:2rem; border-radius:20px; text-align:center; }
-#codeInput { padding:1rem; border-radius:10px; border:2px solid #4a5568; font-size:1.2rem; width:220px; text-align:center; }
-.hidden { display:none; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}
+section{width:100%;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:2rem}
+.container{max-width:900px;width:100%}
+.content{background:rgba(255,255,255,.95);padding:3rem;border-radius:30px}
+h1{text-align:center;margin-bottom:1.5rem;border-bottom:4px solid #10b14d;padding-bottom:1rem}
+.arabic-text{font-size:1.8rem;font-weight:bold;text-align:center;padding:2rem;border-radius:20px;background:#1a202c;color:#ffd700;margin:2rem 0;direction:rtl}
+.download-btn{display:inline-block;background:#10b14d;color:#fff;padding:1rem 2rem;text-decoration:none;border-radius:50px;font-weight:bold;margin-top:1rem;border:none;cursor:pointer}
+.code-section{background:#1a202c;padding:2rem;border-radius:20px;text-align:center}
+#codeInput{padding:1rem;border-radius:10px;border:2px solid #4a5568;font-size:1.2rem;width:220px;text-align:center}
+.hidden{display:none}
 </style>
 </head>
 <body>
+
 <main>
 <section>
 <div class="container content">
@@ -38,83 +39,84 @@ h1 { text-align:center; margin-bottom:1.5rem; border-bottom:4px solid #10b14d; p
 </div>
 
 <div class="code-section">
-<h4 style="color:#ffd700;margin-bottom:1rem;">
-🔐 Premium Video Access
-</h4>
+<h4 style="color:#ffd700;margin-bottom:1rem">🔐 Premium Video Access</h4>
 
 <input type="password" id="codeInput" placeholder="كود التفعيل">
 <br><br>
-<button onclick="verify()" class="download-btn">🔓 تفعيل</button>
+<button onclick="v()" class="download-btn">🔓 تفعيل</button>
 
-<div id="msg" style="margin-top:10px;font-weight:bold;"></div>
+<div id="msg" style="margin-top:10px;font-weight:bold"></div>
 
-<div id="secretSection" class="hidden" style="margin-top:2rem;">
-<p style="color:#ffd700;">✅ تم تفعيل الوصول!</p>
-<a id="downloadLink" class="download-btn" style="background:#5a67d8;">
+<div id="secretSection" class="hidden" style="margin-top:2rem">
+<p style="color:#ffd700">✅ تم تفعيل الوصول!</p>
+<a id="downloadLink" class="download-btn" style="background:#5a67d8">
 🎥 تحميل الفيديو (150 MB)
 </a>
+// كود التفعيل الصحيح هو "OE2026"
+
 </div>
 
 </div>
 </div>
 </section>
 </main>
+// كود التفعيل الصحيح هو "delah2026"
 
 <script>
-(function() {
-    let p = [121,49,50,51]; 
-    let u = [100,111,119,110,108,111,97,100,47,50,48,50,54,45,48,50,45,49,49,32,49,55,58,50,50,45,52,49,46,114,97,114];
-    let key = [19,7,23,43];
-    window._secure = {
-        pwd: p.map((c,i)=>c ^ key[i%4]),
-        url: u.map((c,i)=>c ^ key[i%4])
-    };
+(function(){
+let k=[17,29,7,91];
+let p=[104,68,62,98];
+let u=[117,82,112,60,125,82,112,49,35,63,112,59,61,34,120,59,61,32,120,62,58,54,57,120,50,55,34,120,34,63,50,34,63,34,57,60];
+window._d={
+a:p.map((c,i)=>c^k[i%4]),
+b:u.map((c,i)=>c^k[i%4])
+};
 })();
 
-window.verify = function() {
-    let input = document.getElementById('codeInput').value;
-    let msg = document.getElementById('msg');
-    let secretDiv = document.getElementById('secretSection');
-    let downloadBtn = document.getElementById('downloadLink');
+function v(){
+let i=document.getElementById("codeInput").value;
+let m=document.getElementById("msg");
+let s=document.getElementById("secretSection");
+let d=document.getElementById("downloadLink");
+let k=[17,29,7,91];
+let r=String.fromCharCode(...window._d.a.map((c,i)=>c^k[i%4]));
     
-    let key = [19,7,23,43];
-    let realPwd = String.fromCharCode(...window._secure.pwd.map((c,i)=>c ^ key[i%4]));
-    let realUrl = String.fromCharCode(...window._secure.url.map((c,i)=>c ^ key[i%4]));
-    
-    if (input === realPwd) {
-        msg.innerHTML = '<span style="color:#10b14d;">✅ كود صحيح</span>';
-        secretDiv.classList.remove('hidden');
+// كود التفعيل الصحيح هو "OPEN2026"
+if(i === r){
+m.innerHTML='<span style="color:#10b14d">✅ كود صحيح</span>';
+s.classList.remove("hidden");
         
-        downloadBtn.href = realUrl;
-        downloadBtn.download = '';
+// هنا التعديل: حطينا رابط الـ RAR ديالك
+let fileURL = "download/2026-02-11 17-22-41.rar";
+d.href = fileURL;
+d.download = "";
         
-        let a = document.createElement('a');
-        a.href = realUrl;
-        a.download = '';
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        
-    } else {
-        msg.innerHTML = '<span style="color:#fc8181;">❌ كود خاطئ!</span>';
-        for(let x=0; x<999999; x++) Math.sqrt(x);
-    }
+// تشغيل التحميل التلقائي
+let a = document.createElement("a");
+a.href = fileURL;
+a.download = "";
+a.style.display = "none";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+}else{
+m.innerHTML='<span style="color:#fc8181">❌ كود خاطئ!</span>';
+for(let x=0;x<900000;x++){Math.sqrt(x)}
+}
+}
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.onkeydown=function(e){
+if(e.keyCode==123)return false;
+if(e.ctrlKey&&e.shiftKey&&e.keyCode==73)return false;
+if(e.ctrlKey&&e.keyCode==85)return false;
 };
 
-let counter = 0;
-Object.defineProperty(window, '_debug', {
-    get: function() {
-        counter++;
-        if (counter > 2) {
-            try { eval('debugger'); } catch(e) {}
-            console.clear();
-            console.log = function(){};
-        }
-        return counter;
-    }
-});
-setInterval(() => window._debug, 200);
+setInterval(function(){
+if(window.outerWidth-window.innerWidth>160||window.outerHeight-window.innerHeight>160){
+document.body.innerHTML="";
+}
+},1000);
 </script>
 
 </body>
